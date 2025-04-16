@@ -16,7 +16,7 @@ body, html {
 
 .Color {
     width: 45%;
-    background: linear-gradient(rgb(89, 19, 16),rgb(124, 79, 79), rgb(189, 189, 195));
+    background: linear-gradient(rgb(83, 66, 177),rgb(128, 119, 175), rgb(189, 189, 195));
     color: #f5f7fc;
 
     display: flex;
@@ -44,7 +44,7 @@ body, html {
     padding: 10px 20px;
     background-color:#f5f7fc;
     color:rgb(53, 52, 52);
-    border: 1px solid rgb(114, 61, 60);
+    border: 1px solid rgb(83, 66, 177);
     border-radius: 10px ;
     
     cursor: pointer;
@@ -56,7 +56,7 @@ body, html {
 }
 
 .Color button:hover {
-    background-color: rgb(114, 61, 60);
+    background-color: rgb(83, 66, 177);
     color: #f5f7fc;
 
 }
@@ -111,7 +111,7 @@ form input:focus {
 form button {
     padding: 10px;
     font-size: 16px;
-    background-color: rgb(114, 61, 60);
+    background-color: rgb(83, 66, 177);
     color: #f5f7fc;
     border: 1px solid #FFCFCF;
     border-radius: 10px;
@@ -126,7 +126,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #3f1612;
+    background-color: rgb(60, 43, 160);
 }
 
 @media (max-width: 768px) {
