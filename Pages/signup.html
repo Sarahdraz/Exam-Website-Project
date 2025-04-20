@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration</title>
+    <link rel="stylesheet" href="signup.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <div class="WholePage">
+      <div class="container">
+        <div class="Color">
+          <h2>Hello, Welcome!</h2>
+          <h5>Register with your personal details to Enter your Exam</h5>
+          <p>Already have an account?</p>
+
+          <a href="login.html"><button>Login</button></a>
+        </div>
+        <div class="form">
+          <h1>Registration</h1>
+          <form onsubmit="handleSignUp(event)">
+            <div>
+              <input
+                id="firstName"
+                type="text"
+                placeholder="First Name"
+                required />
+            </div>
+            <div>
+              <input
+                id="lastName"
+                type="text"
+                placeholder="Last Name"
+                required />
+            </div>
+            <div class="email">
+              <input
+                id="email"
+                type="email"
+                placeholder="Email Address"
+                required />
+            </div>
+            <div>
+              <input
+                id="password"
+                type="password"
+                placeholder="Password"
+                required />
+            </div>
+            <div>
+              <input
+                id="confirmPassword"
+                type="password"
+                placeholder="Confirm Password"
+                required />
+            </div>
+            <button type="submit">Sign up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+      function handleSignUp(event) {
+        event.preventDefault();
+
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+
+        const confirmPassword = document
+          .getElementById('confirmPassword')
+          .value.trim();
+        const nameRegex = /^[A-Za-z]+$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!nameRegex.test(firstName)) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Invalid First Name',
+            text: 'First name must contain only letters.',
+          });
+          return;
+        }
+
+        if (!nameRegex.test(lastName)) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Invalid Last Name',
+            text: 'Last name must contain only letters.',
+          });
+          return;
+        }
+
+        if (!emailRegex.test(email)) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Invalid Email',
+            text: 'Please enter a valid email address.',
+          });
+          return;
+        }
+
+        if (password.length < 8) {
+          Swal.fire({
+            icon: 'warning',
+            title: 'Weak Password',
+            text: 'Password must be at least 8 characters long.',
+          });
+          return;
+        }
+
+        if (password !== confirmPassword) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Password Mismatch',
+            text: 'Passwords do not match.',
+          });
+          return;
+        }
+
+        localStorage.setItem('isRegistered', 'true');
+        localStorage.setItem('firstName', firstName);
+        localStorage.setItem('lastName', lastName);
+        localStorage.setItem('registeredEmail', email);
+        localStorage.setItem('registeredPassword', password);
+        Swal.fire({
+          icon: 'success',
+          title: 'Registration Successful',
+          text: 'You can now log in.',
+          showConfirmButton: false,
+          timer: 2000,
+        }).then(() => {
+          window.location.href = 'login.html';
+        });
+      }
+      window.addEventListener('DOMContentLoaded', () => {
+        const isRegistered = localStorage.getItem('isRegistered');
+
+        if (isRegistered === 'true') {
+          Swal.fire({
+            icon: 'info',
+            title: 'You are already registered',
+            text: 'Redirecting you to the login page...',
+            timer: 2000,
+            showConfirmButton: false,
+          }).then(() => {
+            window.location.href = 'login.html';
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
