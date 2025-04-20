@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="quiz-app">
+        <!-- Quiz Content -->
+        <div class="quiz-content" style="display: none">
+          <div class="quiz-info">
+            <div class="category"></div>
+            <div class="count">Questions Count: <span></span></div>
+          </div>
+          <div
+            id="progressBar"
+            style="height: 5px; background: green; width: 100%"></div>
+          <div class="quiz-area"></div>
+          <div class="answer-area"></div>
+          <div class="countdown-time countdown"></div>
+          <div class="navigation">
+            <button class="prev-button">Previous</button>
+            <button class="next-button">Next</button>
+            <button class="flag-button">Flag</button>
+          </div>
+          <button id="submitAnswer" class="submit-button">Submit Answer</button>
+          <div class="bullets"><div class="spans"></div></div>
+          <div class="results"></div>
+        </div>
+      </div>
+
+      <!-- Sidebar for flagged questions -->
+      <div class="sidebar">
+        <h3>Flagged Questions</h3>
+        <ul id="flagList" class="flag-list"></ul>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
