@@ -5,8 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz App</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
   </head>
   <body>
+    <header><button id="themeToggle" style="position: fixed; top: 10px; right: 10px; z-index: 9999; padding: 10px 15px; font-size: 16px; border-radius: 8px;">🌙 Dark Mode</button>
+      <button id="logoutBtn">🚪 Logout</button>
+
+    </header>
     <div class="container">
       <div class="quiz-app">
         <!-- Quiz Content -->
@@ -15,12 +21,15 @@
             <div class="category"></div>
             <div class="count">Questions Count: <span></span></div>
           </div>
+          
           <div
             id="progressBar"
-            style="height: 5px; background: green; width: 100%"></div>
+            style="height: 5px; background: green; width: 100%;"></div>
+            <div class="countdown-time countdown"></div>
+           
           <div class="quiz-area"></div>
           <div class="answer-area"></div>
-          <div class="countdown-time countdown"></div>
+          
           <div class="navigation">
             <button class="prev-button">Previous</button>
             <button class="next-button">Next</button>

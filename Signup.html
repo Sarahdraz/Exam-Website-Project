@@ -6,28 +6,38 @@
     <title>Registration</title>
     <link rel="stylesheet" href="signup.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    
 </head>
 <body>
     <div class="WholePage">
     <div class="container">
-        <div class="Color">
+        <div class="Color" id="colorDiv">
            <h2>Hello, Welcome!</h2>
            <h5>Register with your personal details to Enter your Exam</h5>
            <p>Already have an account?</p>
-           <button>Login</button>
+           <a href="Signin.html"id="goToSignin">
+            <button id="toggleBtn">Login</button>
+          </a>
+          
         </div>
-        <div class="form">
+        <div class="form" id="SignupForm">
         <h1>Registration</h1>
-        <form>
-          <div> <input type="search" placeholder="  First Name" required ></div>
-            <div><input type="search" placeholder="  Last Name" required> </div>
-            <div class="email"><input type="search" placeholder="  Email Address" required></div>
-            <div><input type="password" placeholder="  Password" required> </div>
-            <div><input type="password" placeholder="  Confirm Password" required></div>
-            <button type="submit">Sign up</button>
+        <form id="SignupForm">
+          <div> <input type="search" placeholder="  First Name" id="FirstName" required ></div>
+            <div><input type="search" placeholder="  Last Name" id="LastName" required> </div>
+            <div class="email"><input type="search" placeholder="  Email Address" id="Email" required></div>
+            <div><input type="password" placeholder="  Password"  id="Password"  required></div>
+            <div><input type="password" placeholder="  Confirm Password" id="ConfPassword" required></div>
+            <div id="errorMsg" style="color: red; margin-top: 10px;"></div>
+
+           <button type="submit">Sign up</button> 
         </form>
         </div>
         </div>
     </div>
+    <script src="SignupLocalStr.js"></script>
+    
+    
 </body>
 </html>

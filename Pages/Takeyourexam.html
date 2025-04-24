@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Take Your Exam</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(rgb(83, 66, 177),rgb(128, 119, 175), rgb(189, 189, 195));;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      background-color: #fff;
+      color: rgb(83, 66, 177);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: rgb(83, 66, 177);
+      color: white;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome, <span id="studentName">Student</span>!</h1>
+  <p>Get ready to take your exam. Make sure you have enough time and focus!</p>
+  <button onclick="startExam()">Start Exam</button>
+
+  <script>
+    
+    const firstName = localStorage.getItem("firstName");
+    const lastName = localStorage.getItem("lastName");
+
+    if (!firstName || !lastName) {
+      alert("Please log in first!");
+      window.location.href = "../Pages/signup.html"; // or login page
+    } else {
+      document.getElementById("studentName").textContent = `${firstName} ${lastName}`;
+    }
+
+    function startExam() {
+      window.location.href = "../Quiz App/index.html"; // or your quiz page
+    }
+  </script>
+</body>
+</html>
