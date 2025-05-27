@@ -99,4 +99,14 @@
   "right_answer": "<br>",
   "category": "HTML"
 }
+  {
+  "id": 11,
+  "title": "Which HTML attribute specifies an alternate text for an image, if the image cannot be displayed?",
+  "answer_1": "src",
+  "answer_2": "title",
+  "answer_3": "alt",
+  "answer_4": "longdesc",
+  "right_answer": "alt",
+  "category": "HTML"
+}
 ]
