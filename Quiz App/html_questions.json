@@ -89,4 +89,14 @@
     "right_answer": "All Is Right",
     "category": "HTML"
   }
+  {
+  "id": 10,
+  "title": "What is the correct HTML element for inserting a line break?",
+  "answer_1": "<lb>",
+  "answer_2": "<br>",
+  "answer_3": "<break>",
+  "answer_4": "<newline>",
+  "right_answer": "<br>",
+  "category": "HTML"
+}
 ]
