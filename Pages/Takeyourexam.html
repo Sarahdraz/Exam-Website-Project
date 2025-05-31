@@ -5,9 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Take Your Exam</title>
   <style>
+   
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(rgb(83, 66, 177),rgb(128, 119, 175), rgb(189, 189, 195));;
+      background: linear-gradient(rgb(83, 66, 177), rgb(128, 119, 175), rgb(189, 189, 195));
       color: #fff;
       display: flex;
       flex-direction: column;
@@ -15,53 +16,119 @@
       justify-content: center;
       height: 100vh;
       margin: 0;
+      transition: all 0.3s ease;
+      text-align: center;
     }
 
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
+      font-size: 3rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+      animation: fadeIn 1s ease-in-out;
     }
 
     p {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 40px;
+      opacity: 0.8;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .highlight {
+      color: #ffcc00;
+      font-weight: bold;
     }
 
     button {
-      padding: 15px 30px;
-      font-size: 1.2rem;
+      padding: 15px 40px;
+      font-size: 1.5rem;
       background-color: #fff;
       color: rgb(83, 66, 177);
       border: none;
-      border-radius: 8px;
+      border-radius: 12px;
       cursor: pointer;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
 
     button:hover {
       background-color: rgb(83, 66, 177);
       color: white;
-      transform: scale(1.05);
+      transform: scale(1.1);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.4);
     }
+
+    .message {
+      font-size: 1.1rem;
+      margin-top: 30px;
+      color: #ffcc00;
+      font-style: italic;
+      opacity: 0.9;
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #fff;
+    }
+
+    
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+   
+    body.dark {
+      background: linear-gradient(#2a2a2a, #3e3e3e, #4e4e4e);
+      color: #f1f1f1;
+    }
+
+    body.dark h1 {
+      color: #ffffff;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+    }
+
+    body.dark p {
+      color: #ccc;
+    }
+
+    body.dark button {
+      background-color: #333;
+      color: rgb(83, 66, 177);
+    }
+
+    body.dark button:hover {
+      background-color: rgb(83, 66, 177);
+      color: white;
+      transform: scale(1.1);
+    }
+
+   
     @media (max-width: 768px) {
       h1 {
-        font-size: 2rem; 
+        font-size: 2rem;
       }
 
       p {
-        font-size: 1rem; 
+        font-size: 1rem;
         margin-bottom: 20px;
       }
 
       button {
-        padding: 12px 25px; 
+        padding: 12px 25px;
         font-size: 1rem;
       }
     }
 
     @media (max-width: 480px) {
       h1 {
-        font-size: 1.8rem; 
+        font-size: 1.8rem;
       }
 
       p {
@@ -70,7 +137,7 @@
       }
 
       button {
-        padding: 10px 20px; 
+        padding: 10px 20px;
         font-size: 0.9rem;
       }
     }
@@ -79,24 +146,41 @@
 <body>
 
   <h1>Welcome, <span id="studentName">Student</span>!</h1>
-  <p>Get ready to take your exam. Make sure you have enough time and focus!</p>
+  <p>Get ready to take your exam. <span class="highlight">Make sure you have enough time and focus!</span></p>
   <button onclick="startExam()">Start Exam</button>
+  
+  <p class="message">Don't worry, you're prepared for this!</p>
+
+  <div class="footer">
+    <p>Need help? Contact support at team10support@ITItrainees.com</p>
+  </div>
 
   <script>
-    
+   
     const firstName = localStorage.getItem("firstName");
     const lastName = localStorage.getItem("lastName");
 
     if (!firstName || !lastName) {
       alert("Please log in first!");
-      window.location.href = "../Pages/signup.html"; // or login page
+      window.location.href = "index.html"; // or login page
     } else {
       document.getElementById("studentName").textContent = `${firstName} ${lastName}`;
     }
 
+  
     function startExam() {
       window.location.href = "../Quiz App/index.html"; // quiz page
     }
+
+    
+    document.body.classList.toggle('dark', localStorage.getItem('darkMode') === 'true');
+
+    
+    function toggleDarkMode() {
+      const isDark = document.body.classList.toggle('dark');
+      localStorage.setItem('darkMode', isDark);
+    }
   </script>
+
 </body>
 </html>
